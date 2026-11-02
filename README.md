@@ -12,7 +12,7 @@
 - **Real-time fuel prices** aggregated from 9+ Danish & European chains (OK, Q8, F24, Goon, Uno-X, OIL!, Shell, Circle K, Lavpris…)
 - **Cheapest-station finder** on an interactive map
 - **Trip planner** that routes you past the best-value stations along the way
-- Freemium: ad-supported free tier + one-time premium unlock
+- Freemium: free core app + Premium subscription. No ads.
 
 ## Architecture
 ```mermaid
@@ -39,7 +39,7 @@ flowchart LR
 - **Scheduled ingestion** via `node-cron` jobs that scrape and normalize prices from heterogeneous chain feeds (XML / JSON / XLSX / PDF parsers) into one unified Prisma schema.
 - **Hardened API**: `helmet`, CORS, `express-rate-limit`, `zod` request validation, JWT auth, and structured `winston` logging.
 - **Operational visibility**: Discord webhook alerting for prod and dev, Railway deploys, Docker Compose for local parity.
-- **Two native clients** sharing one API: SwiftUI + MapKit (iOS 16+) and Jetpack Compose (Android), StoreKit 2, privacy-first TelemetryDeck analytics, AdMob with Meta Audience Network fallback.
+- **Two native clients** sharing one API: SwiftUI + MapKit (iOS 16+) and Jetpack Compose (Android), StoreKit 2, privacy-first TelemetryDeck analytics. No ads.
 
 ## Tech stack
 | Layer | Technologies |
@@ -48,10 +48,17 @@ flowchart LR
 | Android | Kotlin, Jetpack Compose |
 | Backend | Node.js, Express, TypeScript, Prisma, PostgreSQL |
 | Infra | Railway, Docker Compose, node-cron |
-| Integrations | Apple App Store Server API, AdMob, Meta Audience Network, TelemetryDeck |
+| Integrations | Apple App Store Server API, TelemetryDeck |
 
 ## Screenshots
-_Add app screenshots to `docs/screenshots/`._
+<p>
+  <img src="docs/screenshots/1-map.jpg" width="200" alt="Map of nearby stations with live prices">
+  <img src="docs/screenshots/2-stations.jpg" width="200" alt="Station list sorted by price">
+  <img src="docs/screenshots/3-price-history.jpg" width="200" alt="Price history and price alerts">
+  <img src="docs/screenshots/4-carplay.jpg" width="200" alt="CarPlay map">
+</p>
+
+_App Store screenshots (Danish UI)._
 
 ---
 © 2026 Alen Trgovcevic · AT Productions (CVR 46159640). Source code is private; this repository is a public architecture overview.
